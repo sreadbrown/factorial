@@ -1,16 +1,22 @@
-function factorial(n) {
-    return ((n*(n+1))/2)
+function factorial(a) {
+  var number = 1;
+  for (i = a; i > 1; i--)
+  {
+    number = number * i;
+  }
+  return number;
 }
 
 
-$(document).ready(function(){
-  $("#factorial form").submit(function(event) {
-  var n = parseInt($("input#n").val());
-  var result = factorial(n);
-  $("#result").show(result);
+$(document).ready(function() {
+  $("form#factorial").submit(function(event) {
+    var a = parseInt($("input#number").val());
 
+    var result = factorial(a);
 
- event.preventDefault();
+    $("#factorialdisplay").text(result);
 
-});
+    $("#result").show();
+    event.preventDefault();
+  });
 });
